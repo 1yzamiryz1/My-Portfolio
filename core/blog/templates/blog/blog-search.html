@@ -1,0 +1,10 @@
+{% load static %}
+<div class="sidebar-box">
+    <form action="{% url 'blog:search' %}" method="post" novalidate class="search-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <span class="icon icon-search"></span>
+            <input type="text" class="form-control" name="search" placeholder="Type a keyword and hit enter">
+        </div>
+    </form>
+</div>

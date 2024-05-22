@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Blog Home
+{% endblock %}
+{% block content %}
+    <section class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg_1.jpg' %});"
+             data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+                <div class="col-md-12 ftco-animate pb-5 mb-3 text-center">
+                    <h1 class="mb-3 bread">Blog Home</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'main:index_view' %}">Home <i
+                            class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a
+                            href="{% url 'blog:blog_view' %}">Blog
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-project" id="projects-section">
+        <div class="container">
+            <div class="row justify-content-center pb-5">
+                <div class="col-md-12 heading-section text-center ftco-animate">
+                    <h1 class="big big-2">OUR BLOG</h1>
+                    <h2 class="mb-4">WELCOME TO</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for post in posts %}
+                    <div class="col-md-6">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center"
+                             style="background-image: url({{ post.image.url }});">
+                            <div class="overlay"></div>
+                            <div class="text text-center p-4">
+                                <h3><a href="{% url 'blog:single' pk=post.id %}">{{ post.title }}</a></h3>
+                                <span>{{ post.author.username }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="pagination justify-content-center">
+                {% if is_paginated %}
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,219 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en" itemscope="" itemtype="https://schema.org/None" prefix="og: https://ogp.me/ns#">
+<head>
+    <meta name="description"
+          content="Amirhossein Yazdanpanah Personal Website a Portfolio website with a blog">
+    <meta name="keywords"
+          content="python, django, 1amiryz1, amirhosseinyazdanpanah, portfolio, personal, blog, 1yzamiryz1,amirhossein, yazdanpanah, software, engineer, backend, developer">
+    <meta property="og:title" content="Amirhossein Yazdanpanah Software Engineer | Backend Developer">
+    <meta property="og:url" content="https://1amiryz1.ir/">
+    <meta property="og:description"
+          content="Amirhossein Yazdanpanah Personal Website a Portfolio website with a blog">
+    <meta property="og:image" content="https://1amiryz1.ir/static/img/profile.jpg">
+    <meta property="og:image:secure_url" content="https://1amiryz1.ir/static/img/profile.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="1amiryz1">
+    <meta property="og:locale" content="fa_IR">
+    <meta name="twitter:card" content="https://1amiryz1.ir/static/img/profile.jpg">
+    <meta name="twitter:domain" content="1amiryz1.ir">
+    <meta name="twitter:title" content="Amirhossein Yazdanpanah Software Engineer | Backend Developer">
+    <meta name="twitter:url" content="https://1amiryz1.ir/">
+    <meta name="twitter:description"
+          content="Amirhossein Yazdanpanah Personal Website a Portfolio website with a blog">
+    <meta name="twitter:image" content="https://1amiryz1.ir/static/img/profile.jpg">
+    <meta itemprop="name" content="Amirhossein Yazdanpanah Software Engineer | Backend Developer">
+    <meta itemprop="url" content="https://1amiryz1.ir/">
+    <meta itemprop="description"
+          content="Amirhossein Yazdanpanah Personal Website a Portfolio website with a blog">
+    <meta itemprop="image" content="https://1amiryz1.ir/static/img/profile.jpg">
+    <title>{% block title %} {% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon.ico' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/android-chrome-512x512' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/android-chrome-192x192' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/site.webmanifest' %}">
+    {% compress css %}
+        <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endcompress %}
+    {% block style %} {% endblock %}
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+{% include 'messages.html' %}
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'main:index_view' %}">Amir</a>
+
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+                data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav nav ml-auto">
+                <li class="nav-item"><a href="{% url 'main:index_view' %}" class="nav-link"><span>Home</span></a>
+                </li>
+                <li class="nav-item"><a href="{% url 'main:about' %}" class="nav-link"><span>About</span></a></li>
+                <li class="nav-item"><a href="{% url 'main:index_view' %}#resume-section"
+                                        class="nav-link"><span>Resume</span></a>
+                </li>
+                <li class="nav-item"><a href="{% url 'main:index_view' %}#services-section" class="nav-link"><span>Services</span></a>
+                </li>
+                <li class="nav-item"><a href="{% url 'main:index_view' %}#skills-section"
+                                        class="nav-link"><span>Skills</span></a>
+                </li>
+                <li class="nav-item"><a href="{% url 'main:index_view' %}#projects-section" class="nav-link"><span>Projects</span></a>
+                </li>
+                <li class="nav-item"><a href="{% url 'main:index_view' %}#blog-section" class="nav-link"><span>Latest Posts</span></a>
+                </li>
+                <li class="nav-item"><a href="{% url 'blog:blog_view' %}" class="nav-link"><span>Blog</span></a>
+                </li>
+                <li class="nav-item"><a href="{% url 'main:contact' %}" class="nav-link"><span>Contact</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+<footer class="ftco-footer ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Socials</h2>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate"><a href="https://instagram.com/1amiryz1"><span
+                                class="icon-instagram"></span></a></li>
+                        <li class="ftco-animate"><a href="https://t.me/Amirhosseinyz1"><span
+                                class="icon-telegram"></span></a></li>
+                        <li class="ftco-animate"><a href="https://github.com/1yzamiryz1"><span
+                                class="icon-github"></span></a></li>
+                        <li class="ftco-animate"><a href="https://www.linkedin.com/in/1amiryz1/"><span
+                                class="icon-linkedin"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-4">
+                    <h2 class="ftco-heading-2">Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'main:index_view' %}"><span
+                                class="icon-long-arrow-right mr-2"></span>Home</a></li>
+                        <li><a href="{% url 'main:about' %}"><span class="icon-long-arrow-right mr-2"></span>About</a>
+                        </li>
+                        <li><a href="{% url 'main:contact' %}"><span
+                                class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+                        <li><a href="{% url 'blog:blog_view' %}"><span
+                                class="icon-long-arrow-right mr-2"></span>Blog</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Logged in
+                                as {{ request.user.username }}</a></li>
+                            <li><a title="logout" href="{% url 'accounts:logout' %}"><span
+                                    class="icon-long-arrow-right mr-2"></span> Logout</a></li>
+                        {% else %}
+                            <li><a title="login" href="{% url 'accounts:login' %}"><span
+                                    class="icon-long-arrow-right mr-2"></span> Login</a></li>
+                            <li><a title="signup" href="{% url 'accounts:signup' %}"><span
+                                    class="icon-long-arrow-right mr-2"></span> SignUp</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Services</h2>
+                    <ul class="list-unstyled">
+                        <li><span class="icon-long-arrow-right mr-2"></span>Web Development</li>
+                        <li><span class="icon-long-arrow-right mr-2"></span>Python Development</li>
+                        <li><span class="icon-long-arrow-right mr-2"></span>Django Development</li>
+                        <li><span class="icon-long-arrow-right mr-2"></span>BackEnd Development</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><a href="https://t.me/Amirhosseinyz1"><span class="icon icon-telegram"></span><span
+                                    class="text">Amirhosseinyz1</span></a></li>
+                            <li><a href="mailto:1yzamiryz1@gmail.com"><span class="icon icon-envelope"></span><span
+                                    class="text">1yzamiryz1@gmail.com</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p style="display: none">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="icon-heart color-danger"
+                                                                        aria-hidden="true"></i> by <a
+                        href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                <p>Made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a
+                        href="https://1amiryz1" target="_blank">1Amiryz1</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+{% compress js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'js/scrollax.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endcompress %}
+</body>
+</html>

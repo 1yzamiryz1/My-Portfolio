@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+
+  db:
+    container_name: db
+    image: postgres:alpine
+    volumes:
+      - ./postgre/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    restart: always
+
+  backend:
+    build:
+      context: .
+      dockerfile: dockerfiles/dev/django/Dockerfile
+    container_name: backend
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./core:/app
+    ports:
+      - "8000:8000"
+      - "5678:5678"
+
+    # env_file:
+    #   - ./envs/dev/.env
+    
+    environment:
+      - SECRET_KEY=test
+      - DEBUG=True
+      - COMINGSOON=False
+      - SHOW_DEBUGGER_TOOLBAR=True
+      - ENABLE_DEBUGPY=True
+    restart: always

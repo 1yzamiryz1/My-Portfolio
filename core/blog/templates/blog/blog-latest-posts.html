@@ -1,0 +1,33 @@
+{% load static %}
+<section class="ftco-section" id="blog-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h1 class="big big-2">Blog</h1>
+                <h2 class="mb-4">Latest Posts</h2>
+            </div>
+        </div>
+        <div class="row d-flex">
+            {% for post in posts %}
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end">
+                        <a href="{% url 'blog:single' pk=post.id %}" class="block-20"
+                           style="background-image: url({{ post.image.url }});">
+                        </a>
+                        <div class="text mt-3 float-right d-block">
+                            <div class="d-flex align-items-center mb-3 meta">
+                                <p class="mb-0">
+                                    <span class="mr-2">{{ post.published_date }}</span>
+                                    <a href="{% url 'blog:single' pk=post.id %}"
+                                       class="mr-2">{{ post.author.username }}</a>
+                                </p>
+                            </div>
+                            <h3 class="heading"><a href="{% url 'blog:single' pk=post.id %}">{{ post.title }}</a></h3>
+                            <p>{{ post.content|truncatewords:10|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

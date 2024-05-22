@@ -1,0 +1,41 @@
+# general  modules
+django
+Pillow
+djangorestframework
+
+# envs controlls
+python-decouple
+
+# third party modules
+markdown       
+django-filter
+drf-yasg
+drf-spectacular
+djangorestframework-simplejwt
+django-cors-headers
+django-robots
+django-debug-toolbar
+django-extensions
+django-taggit
+django-summernote
+django-simple-captcha
+django-multi-captcha-admin
+django_compressor
+django-htmlmin
+djoser
+
+# deployment module
+gunicorn
+
+# refactoring and tests
+black
+flake8
+pytest
+pytest-django
+Faker
+cssmin
+jsmin
+debugpy
+
+# database client
+psycopg[binary,pool]
