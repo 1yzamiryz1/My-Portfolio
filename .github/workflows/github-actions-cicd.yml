@@ -1,5 +1,5 @@
 # migration docs: https://docs.github.com/en/actions/migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions
-name: Django Project Test and Deploy
+name: Django Project clean code and Deploy
 
 # define which repo to listen to for trigger
 on:
@@ -11,10 +11,10 @@ on:
 # list of all jobs
 jobs:
 
-  # testing stage of the project
-  Test:
+  # cleaning stage of the project
+  clean:
     # declaring the name of this job
-    name: Test
+    name: Clean
 
     # which operating system its going to use
     runs-on: ubuntu-latest
@@ -74,8 +74,11 @@ jobs:
       - name: Setup Docker-Compose
         run: docker-compose up -d
 
-      - name: Run Tests
-        run: docker exec backend sh -c "flake8 && pytest ."
+      - name: Run Clean
+        run: docker exec backend sh -c "black -l 78 ."
+
+      - name: Check Clean
+        run: docker exec backend sh -c "flake8 ."
 
   Deploy:
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
@@ -93,6 +96,6 @@ jobs:
           port: ${{secrets.PORT}}
           script: |
             cd ${{secrets.PROJECT_PATH}}
-            docker compose -f docker-compose-stage.yml stop
+            docker compose -f docker-compose-prod.yml stop
             git pull
-            docker compose -f docker-compose-stage.yml restart
+            docker compose -f docker-compose-prod.yml restart
