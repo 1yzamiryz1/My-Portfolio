@@ -83,7 +83,7 @@ jobs:
   Deploy:
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     name: Deploy
-    needs: Test
+    needs: Clean
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
