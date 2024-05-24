@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        projects = Project.objects.all().order_by("type")
+        projects = Project.objects.all().order_by("-type")
         context["projects"] = projects
         return context
 
@@ -26,7 +26,7 @@ class AboutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        certificates = Certificate.objects.all().order_by("type")
+        certificates = Certificate.objects.all().order_by("-type")
 
         # Define the custom sorting order
         custom_order = {
