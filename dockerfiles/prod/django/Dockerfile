@@ -12,7 +12,7 @@ ENV PYTHONUNBUFFERED=1
 
 # install dependencies
 COPY ./requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install --default-timeout=100 --upgrade pip && pip install -r requirements.txt
 
 # copy project
 COPY ./core .
