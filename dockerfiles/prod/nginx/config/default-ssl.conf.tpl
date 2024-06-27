@@ -18,7 +18,7 @@ server {
     }
 }
 
- 
+
 
 server {
 	listen 443 ssl;
@@ -38,7 +38,7 @@ server {
     ssl_certificate     /etc/letsencrypt/live/${DOMAIN}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${DOMAIN}/privkey.pem;
     # keepalive_timeout   70;
-    
+
     # ssl configs which has been given from cert bot
     ssl_session_cache shared:le_nginx_SSL:10m;
     ssl_session_timeout 1440m;
@@ -58,6 +58,7 @@ server {
 
     # Secruity headers
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
+    add_header Content-Security-Policy "default-src 'self'; img-src * data:; font-src 'self' data:; frame-src 'self' https://www.google.com/; connect-src 'self' ;style-src 'self' https://cdn.jsdelivr.net ;script-src 'self' https://cdn.jsdelivr.net ; object-src 'self' ;frame-ancestors 'self'; form-action 'self'; base-uri 'self';";
     add_header X-XSS-Protection "1; mode=block";
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-Content-Type-Options nosniff;
@@ -72,7 +73,7 @@ server {
       autoindex on;
       alias /home/app/static/;
     }
-    
+
     # media files directory
     location /media/ {
       autoindex on;
@@ -83,7 +84,7 @@ server {
         # proxy_pass_request_headers on;
         # proxy_buffering on;
         # proxy_buffers 8 24k;
-        # proxy_buffer_size 2k;  
+        # proxy_buffer_size 2k;
         proxy_redirect      off;
         proxy_set_header    Host                $host;
         proxy_set_header    REMOTE_ADDR         $remote_addr;
