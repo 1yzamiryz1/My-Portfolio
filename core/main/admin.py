@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from main.models import Contact, Certificate
-
+from main.models import Contact, Certificate, Project
 
 class ContactAdmin(admin.ModelAdmin):
     date_hierarchy = "created_date"
@@ -19,3 +18,4 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Certificate)
+admin.site.register(Project)
